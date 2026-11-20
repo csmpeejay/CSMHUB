@@ -1,0 +1,22 @@
+{
+  "name": "csm-hub",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Commonsense Marketing internal project hub — clients, projects, tasks and billing in one place (Stripe, ClickUp, Slack, email).",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "db:migrate:local": "wrangler d1 migrations apply DB --local",
+    "db:migrate:remote": "wrangler d1 migrations apply DB --remote",
+    "deploy": "wrangler d1 migrations apply DB --remote && wrangler deploy",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "hono": "^4.13.19"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261120.1",
+    "typescript": "^5.9.0",
+    "wrangler": "^4.165.0"
+  }
+}

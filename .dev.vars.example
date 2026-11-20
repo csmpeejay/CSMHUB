@@ -1,0 +1,17 @@
+# Copy to .dev.vars for local development (never commit .dev.vars).
+# In production, add each of these in Cloudflare → Worker → Settings → Variables and Secrets (type: Secret).
+
+STRIPE_SECRET_KEY=rk_live_or_sk_test_xxx
+STRIPE_WEBHOOK_SECRET=whsec_xxx
+
+CLICKUP_API_TOKEN=pk_xxx
+CLICKUP_TEAM_ID=1234567
+CLICKUP_WEBHOOK_SECRET=
+
+SLACK_BOT_TOKEN=xoxb-xxx
+SLACK_CHANNEL_ID=C0123456789
+
+RESEND_API_KEY=re_xxx
+
+# Lets you open the dashboard locally without Cloudflare Access in front.
+DEV_USER_EMAIL=you@commonsensemarketing.com.au

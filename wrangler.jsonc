@@ -1,0 +1,35 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "csm-hub",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-11-01",
+  "observability": { "enabled": true },
+
+  // Create the database once (Cloudflare dashboard → Storage & Databases → D1 → Create, name it csm-hub-db)
+  // then paste its Database ID below.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "csm-hub-db",
+      "database_id": "REPLACE_WITH_D1_DATABASE_ID",
+      "migrations_dir": "migrations"
+    }
+  ],
+
+  // Non-secret settings. Secrets (API keys) are added in the dashboard → Settings → Variables and Secrets.
+  "vars": {
+    "APP_NAME": "CSM Hub",
+    "APP_URL": "https://hub.commonsensemarketing.com.au",
+    "EMAIL_FROM": "CSM Hub <hub@commonsensemarketing.com.au>",
+    "DIGEST_EMAILS": "support@commonsensemarketing.com.au",
+    "ALLOWED_EMAIL_DOMAIN": "commonsensemarketing.com.au",
+    "TIMEZONE": "Australia/Brisbane"
+  },
+  // ACCESS_TEAM_DOMAIN and ACCESS_AUD are added in the dashboard as Secrets (README step 6),
+  // so they survive every deploy from GitHub.
+
+  "triggers": {
+    // */15 → sync Stripe + ClickUp and run alerts. 21:00 UTC = 7:00am Brisbane → daily digest.
+    "crons": ["*/15 * * * *", "0 21 * * *"]
+  }
+}
