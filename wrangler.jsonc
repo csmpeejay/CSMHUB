@@ -11,7 +11,7 @@
     {
       "binding": "DB",
       "database_name": "csm-hub-db",
-      "database_id": "REPLACE_WITH_D1_DATABASE_ID",
+      "database_id": "8f2a7ad9-e0d9-4960-bae6-e7b3bbc4d3f2",
       "migrations_dir": "migrations"
     }
   ],
